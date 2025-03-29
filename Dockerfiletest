@@ -1,0 +1,8 @@
+FROM selenium/standalone-chrome:latest
+
+WORKDIR /app
+
+COPY target/testng-fat-jar.jar app.jar
+COPY src/test/resources/testng.xml testng.xml
+
+CMD ["java", "-cp", "app.jar", "org.testng.TestNG", "testng.xml"]

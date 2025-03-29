@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  selenium-hub:
+    image: selenium/standalone-chrome:latest
+    platform: linux/amd64  # 解决平台不匹配警告
+    container_name: selenium-hub
+    ports:
+      - "4444:4444"
+      - "7900:7900"
+    shm_size: 2g
+    networks:
+      - testnet
+
+  test-runner:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: testng-runner
+    depends_on:
+      - selenium-hub
+    networks:
+      - testnet
+
+networks:
+  testnet:
