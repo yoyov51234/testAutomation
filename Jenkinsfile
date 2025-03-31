@@ -1,13 +1,14 @@
 pipeline {
     agent any
 
-    stage('Say Hello') {
-                steps {
-                    echo '👋 Hello, Jenkins is working!'
-                }
-            }
+
 
     stages {
+        stage('Say Hello') {
+                    steps {
+                        echo '👋 Hello, Jenkins is working!'
+                    }
+                }
         stage('Run TestNG Tests') {
             steps {
                 sh 'mvn test'
