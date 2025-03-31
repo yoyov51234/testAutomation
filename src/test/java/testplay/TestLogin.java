@@ -17,7 +17,7 @@ public class TestLogin {
     @Test
     public void testLogin() throws MalformedURLException {
         String os = System.getProperty("os.name").toLowerCase();
-        WebDriver wb=null;
+        WebDriver wb;
         if (os.contains("linux")) {
             // 容器或 Linux 本地
 
@@ -35,7 +35,7 @@ public class TestLogin {
 
 
         wb.get("https://www.baidu.com/");
-        WebElement element = wb.findElement(By.xpath("//*[@id=\"kw\"]"));
+//        WebElement element = wb.findElement(By.xpath("//*[@id=\"kw\"]"));
 //        element.sendKeys("hello");
 //        element.submit();
         System.out.println("Page title is: " + wb.getTitle());
